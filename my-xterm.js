@@ -19,6 +19,8 @@ class MyXterm extends LitElement {
      */
     return html`
       <!-- template content -->
+      <link rel="stylesheet" href="node_modules/xterm/css/xterm.css" />
+      <script src="node_modules/xterm/lib/xterm.js"></script> 
       <div id="terminal"></div>
       <script>
         var term = new Terminal();
