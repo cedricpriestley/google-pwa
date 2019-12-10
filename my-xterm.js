@@ -2,7 +2,7 @@
 import { LitElement, html } from 'lit-element';
 
 // Extend the LitElement base class
-class MyElement extends LitElement {
+class MyXterm extends LitElement {
 
   /**
    * Implement `render` to define a template for your element.
@@ -19,9 +19,14 @@ class MyElement extends LitElement {
      */
     return html`
       <!-- template content -->
-      <p>A paragraph</p>
+      <div id="terminal"></div>
+      <script>
+        var term = new Terminal();
+        term.open(document.getElementById('terminal'));
+        term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
+      </script>
     `;
   }
 }
 // Register the new element with the browser.
-customElements.define('my-element', MyElement);
+customElements.define('my-xterm', MyXterm);
